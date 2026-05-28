@@ -53,10 +53,3 @@ Dashboard Analytics
 
 
 
-Current Status
-Backend APIs completed
-CSV ingestion implemented
-Emission calculations implemented
-Dashboard completed
-Review workflow implemented
-Deployment configured
