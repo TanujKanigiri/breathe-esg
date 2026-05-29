@@ -29,11 +29,14 @@ def serve_react(request, *args, **kwargs):
         'index.html'
     )
 
-    if not os.path.exists(index_path):
-        return HttpResponse("React build not found", status=500)
+    print("INDEX PATH =", index_path)
+    print("EXISTS =", os.path.exists(index_path))
 
-    with open(index_path, 'r') as f:
-        return HttpResponse(f.read(), content_type='text/html')
+    with open(index_path, "r") as f:
+        return HttpResponse(
+            f.read(),
+            content_type="text/html"
+        )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
