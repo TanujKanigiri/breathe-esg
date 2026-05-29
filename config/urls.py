@@ -16,14 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import SpatialView
+from django.views.generic import TemplateView
 from django.conf import settings
 import os
 from django.http import FileResponse, HttpResponse
 
 def serve_react(request, *args, **kwargs):
-    index_path = os.path.join(settings.BASE_DIR, 'frontend', 'build', 'index.html')
-    with open(index_path, 'rb') as f:
+    index_path = os.path.join(
+        settings.BASE_DIR,
+        'frontend',
+        'build',
+        'index.html'
+    )
+
+    if not os.path.exists(index_path):
+        return HttpResponse("React build not found", status=500)
+
+    with open(index_path, 'r') as f:
         return HttpResponse(f.read(), content_type='text/html')
 
 urlpatterns = [
