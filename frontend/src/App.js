@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
-const API = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000/api";
+const API = "/api";
 const TENANT = "default";
 
 const SCOPE_COLORS = { "1": "#f97316", "2": "#3b82f6", "3": "#8b5cf6" };
